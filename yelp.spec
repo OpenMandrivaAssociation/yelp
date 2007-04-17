@@ -8,8 +8,8 @@
 
 Summary:	GNOME 2 help browser
 Name:		yelp
-Version: 2.18.0
-Release: %mkrel 3
+Version: 2.18.1
+Release: %mkrel 1
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 # from Fedora: register docbook mime type for yelp
@@ -69,8 +69,8 @@ EOF
 
 desktop-file-install --vendor="" \
   --remove-category="Application" \
-  --add-category="X-MandrivaLinux-MoreApplications-Documentation" \
   --add-only-show-in="GNOME" \
+  --add-category="X-MandrivaLinux-MoreApplications-Documentation" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/pixmaps
@@ -105,5 +105,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_menudir}/*
 %{_datadir}/pixmaps/*
 %_datadir/icons/hicolor/192x192/apps/yelp-icon-big.png
-
-
