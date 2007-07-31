@@ -57,34 +57,28 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %makeinstall_std
 
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-
-cat << EOF >> $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}): icon="gnome-help.png" title="GNOME Help" longtitle="Get help with GNOME" needs="gnome" section="More Applications/Documentation" command="%{_bindir}/yelp" startup_notify="true" xdg="true"
-EOF
-
-desktop-file-install --vendor="" \
+desktop-file-install \
   --remove-category="Application" \
   --add-only-show-in="GNOME" \
-  --add-category="X-MandrivaLinux-MoreApplications-Documentation" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
+  --add-category="Documentation" \
+  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/pixmaps
-cp %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/pixmaps/gnome-help.png
+mkdir -p %{buildroot}%{_datadir}/pixmaps
+cp %{SOURCE1} %{buildroot}%{_datadir}/pixmaps/gnome-help.png
 
 %find_lang %{name}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %post
 %post_install_gconf_schemas %name
 %{update_menus}
-%update_desktop_database
+%{update_desktop_database}
 %update_icon_cache hicolor
 
 
@@ -92,7 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 %preun_uninstall_gconf_schemas %name
 %postun
 %{clean_menus}
-%clean_desktop_database
+%{clean_desktop_database}
 %clean_icon_cache hicolor
 
 %files -f %{name}.lang
@@ -102,6 +96,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/*
 %{_datadir}/applications/*
 %{_datadir}/yelp
-%{_menudir}/*
 %{_datadir}/pixmaps/*
-%_datadir/icons/hicolor/192x192/apps/yelp-icon-big.png
+%{_iconsdir}/hicolor/*/apps/*.png
