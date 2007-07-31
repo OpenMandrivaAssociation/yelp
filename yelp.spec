@@ -48,8 +48,11 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 %patch4 -p1 -b .title
 %patch5 -p1 -b .apropos
 %build
-%configure2_5x --enable-info --with-search=beagle \
---enable-debug \
+%configure2_5x \
+    --enable-info \
+    --with-search=beagle \
+    --enable-debug \
+    --with-gecko=firefox \
 %if %mdkversion <= 200700
 --with-mozilla=mozilla-firefox
 %endif
