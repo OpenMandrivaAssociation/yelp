@@ -36,6 +36,7 @@ BuildRequires:	libbzip2-devel
 BuildRequires:	gnome-doc-utils >= %{req_gnome_doc_utils_version}
 BuildRequires:	libxslt-devel perl-XML-Parser texinfo
 BuildRequires:	desktop-file-utils
+BuildRequires:	librarian-devel
 
 %description
 Help browser for GNOME 2 which supports docbook documents, info and man.
