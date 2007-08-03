@@ -18,6 +18,8 @@ Patch2: yelp-2.13.2-add-mime-handling.patch
 Patch4:		yelp-2.6.0-title.patch
 # fwang: Patch to fix the bad comment style (c++ style)
 Patch5:		yelp-2.19.1-bad-comment.patch
+# fwang: Patch to define langs before using
+Patch6:		yelp-2.19.1-langs-define.patch
 URL:		http://www.gnome.org/softwaremap/projects/yelp/
 License:	GPL
 Group:		Graphical desktop/GNOME
@@ -48,6 +50,7 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 %patch2 -p1 -b .add-mime-handling
 %patch4 -p1 -b .title
 %patch5 -p1 -b .bad-comment
+%patch6 -p1 -b .lang-define
 
 %build
 %configure2_5x \
