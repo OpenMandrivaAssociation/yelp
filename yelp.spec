@@ -16,6 +16,8 @@ Source1:	yelp.png
 Patch2: yelp-2.13.2-add-mime-handling.patch
 # (fc) 2.4.2-4mdk strip newline from title 
 Patch4:		yelp-2.6.0-title.patch
+# fwang: Patch to fix the bad comment style (c++ style)
+Patch5:		yelp-2.19.1-bad-comment.patch
 URL:		http://www.gnome.org/softwaremap/projects/yelp/
 License:	GPL
 Group:		Graphical desktop/GNOME
@@ -45,6 +47,7 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 %setup -q
 %patch2 -p1 -b .add-mime-handling
 %patch4 -p1 -b .title
+%patch5 -p1 -b .bad-comment
 
 %build
 %configure2_5x \
