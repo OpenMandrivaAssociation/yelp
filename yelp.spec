@@ -9,7 +9,7 @@
 Summary:	GNOME 2 help browser
 Name:		yelp
 Version:	2.19.1
-Release:	%mkrel 2
+Release:	%mkrel 3
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 # from Fedora: register docbook mime type for yelp
@@ -20,6 +20,8 @@ Patch4:		yelp-2.6.0-title.patch
 Patch5:		yelp-2.19.1-bad-comment.patch
 # fwang: Patch to define langs before using
 Patch6:		yelp-2.19.1-langs-define.patch
+# (fc) 2.19.1-3mdv fix ghelp handling (Mdv bug #32401)
+Patch7:		yelp-2.19.1-ghelp.patch
 URL:		http://www.gnome.org/softwaremap/projects/yelp/
 License:	GPL
 Group:		Graphical desktop/GNOME
@@ -51,6 +53,7 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 %patch4 -p1 -b .title
 %patch5 -p1 -b .bad-comment
 %patch6 -p1 -b .lang-define
+%patch7 -p1 -b .ghelp
 
 %build
 %configure2_5x \
