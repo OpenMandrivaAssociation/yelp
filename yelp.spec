@@ -9,7 +9,7 @@
 Summary:	GNOME 2 help browser
 Name:		yelp
 Version:	2.19.90
-Release:	%mkrel 1
+Release:	%mkrel 2
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 # from Fedora: register docbook mime type for yelp
@@ -20,6 +20,7 @@ Patch4:		yelp-2.6.0-title.patch
 Patch5:		yelp-2.19.90-bad-comment.patch
 # fwang: Patch to define langs before using
 Patch6:		yelp-2.19.1-langs-define.patch
+# add lzma support (Mdv bug #32579)
 Patch7:		yelp-2.19.90-lzma-support.patch
 URL:		http://www.gnome.org/softwaremap/projects/yelp/
 License:	GPL
@@ -55,8 +56,10 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 %patch6 -p1 -b .lang-define
 %patch7 -p1 -b .lzma_support
 
+# needed by patch7
+autoreconf
+
 %build
-./autogen.sh
 %configure2_5x \
     --enable-info \
     --with-search=beagle \
