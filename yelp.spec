@@ -22,7 +22,7 @@ Patch5:		yelp-2.19.90-bad-comment.patch
 Patch6:		yelp-2.19.1-langs-define.patch
 # add lzma support (Mdv bug #32579)
 Patch7:		yelp-2.19.90-lzma-support.patch
-URL:		http://www.gnome.org/softwaremap/projects/yelp/
+URL:		http://live.gnome.org/Yelp
 License:	GPL
 Group:		Graphical desktop/GNOME
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
