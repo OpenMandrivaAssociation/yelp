@@ -8,8 +8,8 @@
 
 Summary:	GNOME 2 help browser
 Name:		yelp
-Version:	2.19.90
-Release:	%mkrel 2
+Version:	2.20.0
+Release:	%mkrel 1
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 # from Fedora: register docbook mime type for yelp
