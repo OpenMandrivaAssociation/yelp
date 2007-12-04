@@ -8,16 +8,14 @@
 
 Summary:	GNOME 2 help browser
 Name:		yelp
-Version:	2.20.0
-Release:	%mkrel 5
+Version:	2.21.1
+Release:	%mkrel 1
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 # from Fedora: register docbook mime type for yelp
 Patch2:		yelp-2.13.2-add-mime-handling.patch
 # (fc) 2.4.2-4mdk strip newline from title 
 Patch4:		yelp-2.6.0-title.patch
-# fwang: Patch to fix the bad comment style (c++ style)
-Patch5:		yelp-2.19.90-bad-comment.patch
 # fwang: Patch to define langs before using
 Patch6:		yelp-2.19.1-langs-define.patch
 # add lzma support (Mdv bug #32579)
@@ -53,7 +51,6 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 %setup -q
 %patch2 -p1 -b .add-mime-handling
 %patch4 -p1 -b .title
-%patch5 -p1 -b .bad-comment
 %patch6 -p1 -b .lang-define
 %patch7 -p1 -b .lzma_support
 
