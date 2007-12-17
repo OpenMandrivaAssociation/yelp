@@ -24,7 +24,6 @@ Patch7:		yelp-2.19.90-lzma-support.patch
 URL:		http://live.gnome.org/Yelp
 License:	GPL
 Group:		Graphical desktop/GNOME
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Requires:	libgnome2 >= %{req_libgnome_version}
 Requires:	gnome-doc-utils >= %{req_gnome_doc_utils_version}
 Requires: 	%mklibname mozilla-firefox %firefox_version
