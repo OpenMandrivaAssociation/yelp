@@ -8,8 +8,8 @@
 
 Summary:	GNOME 2 help browser
 Name:		yelp
-Version:	2.21.1
-Release:	%mkrel 3
+Version:	2.21.2
+Release:	%mkrel 1
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 Patch: yelp-2.21.1-libbeagle-0.3.0.patch
@@ -19,8 +19,6 @@ Patch2:		yelp-2.13.2-add-mime-handling.patch
 Patch4:		yelp-2.6.0-title.patch
 # fwang: Patch to define langs before using
 Patch6:		yelp-2.19.1-langs-define.patch
-# add lzma support (Mdv bug #32579)
-Patch7:		yelp-2.19.90-lzma-support.patch
 URL:		http://live.gnome.org/Yelp
 License:	GPL
 Group:		Graphical desktop/GNOME
@@ -54,7 +52,6 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 %patch2 -p1 -b .add-mime-handling
 %patch4 -p1 -b .title
 %patch6 -p1 -b .lang-define
-%patch7 -p1 -b .lzma_support
 
 # needed by patch7
 autoreconf
