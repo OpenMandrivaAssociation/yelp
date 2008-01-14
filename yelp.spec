@@ -17,8 +17,6 @@ Patch: yelp-2.21.1-libbeagle-0.3.0.patch
 Patch2:		yelp-2.13.2-add-mime-handling.patch
 # (fc) 2.4.2-4mdk strip newline from title 
 Patch4:		yelp-2.6.0-title.patch
-# fwang: Patch to define langs before using
-Patch6:		yelp-2.19.1-langs-define.patch
 URL:		http://live.gnome.org/Yelp
 License:	GPL
 Group:		Graphical desktop/GNOME
@@ -51,7 +49,6 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 %patch -p1 -b .libbeagle
 %patch2 -p1 -b .add-mime-handling
 %patch4 -p1 -b .title
-%patch6 -p1 -b .lang-define
 
 # needed by patch7
 autoreconf
