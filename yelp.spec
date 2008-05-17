@@ -8,8 +8,8 @@
 
 Summary:	GNOME 2 help browser
 Name:		yelp
-Version:	2.22.0
-Release:	%mkrel 2
+Version:	2.22.1
+Release:	%mkrel 1
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 Patch: yelp-2.21.1-libbeagle-0.3.0.patch
