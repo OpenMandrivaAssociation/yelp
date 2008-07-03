@@ -8,17 +8,16 @@
 
 Summary:	GNOME 2 help browser
 Name:		yelp
-Version:	2.22.1
+Version:	2.23.1
 Release:	%mkrel 1
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
-Patch: yelp-2.21.1-libbeagle-0.3.0.patch
 # from Fedora: register docbook mime type for yelp
 Patch2:		yelp-2.13.2-add-mime-handling.patch
 # (fc) 2.4.2-4mdk strip newline from title 
 Patch4:		yelp-2.6.0-title.patch
 URL:		http://live.gnome.org/Yelp
-License:	GPL
+License:	GPLv2+
 Group:		Graphical desktop/GNOME
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Requires:	libgnome2 >= %{req_libgnome_version}
@@ -46,7 +45,6 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 
 %prep
 %setup -q
-%patch -p1 -b .libbeagle
 %patch2 -p1 -b .add-mime-handling
 %patch4 -p1 -b .title
 
