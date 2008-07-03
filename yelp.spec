@@ -35,8 +35,9 @@ BuildRequires:	libbeagle-devel >= 0.3.0
 BuildRequires:	libbzip2-devel
 BuildRequires:	rarian-devel
 BuildRequires:	lzma-devel
+BuildRequires:	intltool
 BuildRequires:	gnome-doc-utils >= %{req_gnome_doc_utils_version}
-BuildRequires:	libxslt-devel perl-XML-Parser texinfo
+BuildRequires:	libxslt-devel texinfo
 BuildRequires:	desktop-file-utils
 BuildRequires:  gnome-common
 
