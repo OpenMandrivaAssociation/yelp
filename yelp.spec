@@ -3,15 +3,16 @@
 %define req_libgnome_version 2.0.2
 %define req_libgtkhtml_version 2.1.2
 %define req_gnome_doc_utils_version 0.3.1
-%define firefox_version %(rpm -q mozilla-firefox --queryformat %{VERSION})
-
+%define xulrunner 1.9
 
 Summary:	GNOME 2 help browser
 Name:		yelp
 Version:	2.23.1
-Release:	%mkrel 3
+Release:	%mkrel 4
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
+#gw from Fedora, build with xulrunner
+Patch: yelp-libxul.patch
 # from Fedora: register docbook mime type for yelp
 Patch2:		yelp-2.13.2-add-mime-handling.patch
 # (fc) 2.4.2-4mdk strip newline from title 
@@ -22,11 +23,11 @@ Group:		Graphical desktop/GNOME
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Requires:	libgnome2 >= %{req_libgnome_version}
 Requires:	gnome-doc-utils >= %{req_gnome_doc_utils_version}
-Requires: 	%mklibname mozilla-firefox %firefox_version
+Requires: 	%mklibname xulrunner %xulrunner
 Requires:	man
 BuildRequires:	gettext
 BuildRequires:	libglade2.0-devel
-BuildRequires:	mozilla-firefox-devel
+BuildRequires:	xulrunner-devel-unstable >= %xulrunner
 BuildRequires:	libgnome2-devel >= %{req_libgnome_version}
 BuildRequires:	libgnomeprintui-devel
 BuildRequires:	libgnomeui2-devel
@@ -46,10 +47,11 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 
 %prep
 %setup -q
+%patch -p1
 %patch2 -p1 -b .add-mime-handling
 %patch4 -p1 -b .title
 
-# needed by patch7
+# needed by patch 0
 autoreconf
 
 %build
@@ -57,10 +59,7 @@ autoreconf
     --enable-info \
     --with-search=beagle \
     --enable-debug \
-    --with-gecko=firefox \
-%if %mdkversion <= 200700
---with-mozilla=mozilla-firefox
-%endif
+    --with-gecko=libxul-embedding \
 
 %make
 
