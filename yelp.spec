@@ -41,6 +41,7 @@ BuildRequires:	gnome-doc-utils >= %{req_gnome_doc_utils_version}
 BuildRequires:	libxslt-devel texinfo
 BuildRequires:	desktop-file-utils
 BuildRequires:  gnome-common
+BuildRequires:  gettext-devel
 
 %description
 Help browser for GNOME 2 which supports docbook documents, info and man.
