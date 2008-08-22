@@ -7,8 +7,8 @@
 
 Summary:	GNOME 2 help browser
 Name:		yelp
-Version:	2.23.1
-Release:	%mkrel 5
+Version:	2.23.2
+Release:	%mkrel 1
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 #gw from Fedora, build with xulrunner
@@ -17,8 +17,6 @@ Patch: yelp-libxul.patch
 Patch2:		yelp-2.13.2-add-mime-handling.patch
 # (fc) 2.4.2-4mdk strip newline from title 
 Patch4:		yelp-2.6.0-title.patch
-# (fc) 2.23.1-5mdv fix security bug MDVSA 2008 175 (SVN)
-Patch5:		yelp-2.23.1-MDVSA-2008-175.patch
 URL:		http://live.gnome.org/Yelp
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -52,7 +50,6 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 %patch0 -p1 -b .libxul
 %patch2 -p1 -b .add-mime-handling
 %patch4 -p1 -b .title
-%patch5 -p1 -b .MDVSA-2008-175
 
 # needed by patch 0
 autoreconf
