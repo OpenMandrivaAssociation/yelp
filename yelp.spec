@@ -7,7 +7,7 @@
 
 Summary:	GNOME 2 help browser
 Name:		yelp
-Version:	2.23.2
+Version:	2.23.91
 Release:	%mkrel 1
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
