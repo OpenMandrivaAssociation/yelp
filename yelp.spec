@@ -4,11 +4,13 @@
 %define req_libgtkhtml_version 2.1.2
 %define req_gnome_doc_utils_version 0.3.1
 %define xulrunner 1.9
+%define xullibname %mklibname xulrunner %xulrunner
+%define xulver %(rpm -q --queryformat %%{VERSION} %xullibname)
 
 Summary:	GNOME 2 help browser
 Name:		yelp
 Version:	2.24.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 #gw from Fedora, build with xulrunner
@@ -23,7 +25,7 @@ Group:		Graphical desktop/GNOME
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Requires:	libgnome2 >= %{req_libgnome_version}
 Requires:	gnome-doc-utils >= %{req_gnome_doc_utils_version}
-Requires: 	%mklibname xulrunner %xulrunner
+Requires:	%xullibname = %xulver
 Requires:	man
 BuildRequires:	gettext
 BuildRequires:	libglade2.0-devel
