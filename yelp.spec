@@ -10,7 +10,7 @@
 Summary:	GNOME 2 help browser
 Name:		yelp
 Version:	2.24.0
-Release:	%mkrel 6
+Release:	%mkrel 7
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 #gw from Fedora, build with xulrunner
@@ -55,11 +55,10 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 %patch4 -p1 -b .title
 
 # needed by patch 0
-autoreconf
+autoreconf -fi
 
 %build
 %configure2_5x \
-    --enable-info \
     --with-search=beagle \
     --enable-debug \
     --with-gecko=libxul-embedding \
