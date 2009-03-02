@@ -2,15 +2,15 @@
 
 %define req_libgnome_version 2.0.2
 %define req_libgtkhtml_version 2.1.2
-%define req_gnome_doc_utils_version 0.3.1
+%define req_gnome_doc_utils_version 0.3.2
 %define xulrunner 1.9
 %define xullibname %mklibname xulrunner %xulrunner
 %define xulver %(rpm -q --queryformat %%{VERSION} %xullibname)
 
 Summary:	GNOME 2 help browser
 Name:		yelp
-Version:	2.24.0
-Release:	%mkrel 7
+Version:	2.25.1
+Release:	%mkrel 1
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 #gw from Fedora, build with xulrunner
@@ -50,12 +50,12 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 
 %prep
 %setup -q
-%patch0 -p1 -b .libxul
+#%patch0 -p1 -b .libxul
 %patch2 -p1 -b .add-mime-handling
 %patch4 -p1 -b .title
 
 # needed by patch 0
-autoreconf -fi
+#autoreconf -fi
 
 %build
 %configure2_5x \
