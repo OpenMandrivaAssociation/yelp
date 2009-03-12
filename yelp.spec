@@ -10,7 +10,7 @@
 Summary:	GNOME 2 help browser
 Name:		yelp
 Version:	2.25.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 #gw from Fedora, build with xulrunner
