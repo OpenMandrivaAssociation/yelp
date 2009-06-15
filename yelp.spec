@@ -9,12 +9,11 @@
 
 Summary:	GNOME 2 help browser
 Name:		yelp
-Version:	2.26.0
-Release:	%mkrel 4
+Version:	2.27.1
+Release:	%mkrel 1
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
-#gw from Fedora, build with xulrunner
-Patch0: yelp-libxul.patch
+Patch1: yelp-2.27.1-remove-c++-comment.patch
 # from Fedora: register docbook mime type for yelp
 Patch2:		yelp-2.13.2-add-mime-handling.patch
 # (fc) 2.4.2-4mdk strip newline from title 
@@ -28,10 +27,8 @@ Requires:	gnome-doc-utils >= %{req_gnome_doc_utils_version}
 Requires:	%xullibname = %xulver
 Requires:	man
 BuildRequires:	gettext
-BuildRequires:	libglade2.0-devel
 BuildRequires:	xulrunner-devel-unstable >= %xulrunner
 BuildRequires:	libgnome2-devel >= %{req_libgnome_version}
-BuildRequires:	libgnomeprintui-devel
 BuildRequires:	libgnomeui2-devel
 BuildRequires:	startup-notification-devel
 BuildRequires:	libbeagle-devel >= 0.3.0
@@ -50,12 +47,9 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 
 %prep
 %setup -q
-#%patch0 -p1 -b .libxul
+%patch1 -p1
 %patch2 -p1 -b .add-mime-handling
 %patch4 -p1 -b .title
-
-# needed by patch 0
-#autoreconf -fi
 
 %build
 %configure2_5x \
