@@ -10,7 +10,7 @@
 Summary:	GNOME 2 help browser
 Name:		yelp
 Version:	2.27.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 Patch1: yelp-2.27.1-remove-c++-comment.patch
@@ -34,7 +34,7 @@ BuildRequires:	startup-notification-devel
 BuildRequires:	libbeagle-devel >= 0.3.0
 BuildRequires:	libbzip2-devel
 BuildRequires:	rarian-devel
-BuildRequires:	lzma-devel
+BuildRequires:	liblzmadec-devel
 BuildRequires:	intltool
 BuildRequires:	gnome-doc-utils >= %{req_gnome_doc_utils_version}
 BuildRequires:	libxslt-devel texinfo
