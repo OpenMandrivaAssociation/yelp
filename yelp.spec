@@ -2,7 +2,7 @@
 
 %define req_libgnome_version 2.0.2
 %define req_libgtkhtml_version 2.1.2
-%define req_gnome_doc_utils_version 0.3.2
+%define req_gnome_doc_utils_version 0.17.2
 %define xulrunner 1.9
 %define xullibname %mklibname xulrunner %xulrunner
 %define xulver %(rpm -q --queryformat %%{VERSION} %xullibname)
