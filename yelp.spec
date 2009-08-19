@@ -3,14 +3,11 @@
 %define req_libgnome_version 2.0.2
 %define req_libgtkhtml_version 2.1.2
 %define req_gnome_doc_utils_version 0.17.2
-%define xulrunner 1.9
-%define xullibname %mklibname xulrunner %xulrunner
-%define xulver %(rpm -q --queryformat %%{VERSION} %xullibname)
 
 Summary:	GNOME 2 help browser
 Name:		yelp
 Version:	2.27.3
-Release:	%mkrel 2
+Release:	%mkrel 3
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 Patch1: yelp-2.27.1-remove-c++-comment.patch
@@ -24,10 +21,10 @@ Group:		Graphical desktop/GNOME
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Requires:	libgnome2 >= %{req_libgnome_version}
 Requires:	gnome-doc-utils >= %{req_gnome_doc_utils_version}
-Requires:	%xullibname = %xulver
+Requires:	%xulrunner_libname
 Requires:	man
 BuildRequires:	gettext
-BuildRequires:	xulrunner-devel-unstable >= %xulrunner
+BuildRequires:	xulrunner-devel >= 1.0
 BuildRequires:	libgnome2-devel >= %{req_libgnome_version}
 BuildRequires:	libgnomeui2-devel
 BuildRequires:	startup-notification-devel
@@ -52,6 +49,7 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 %patch4 -p1 -b .title
 
 %build
+export CPPFLAGS=-I/usr/include/nspr4
 %configure2_5x \
     --with-search=beagle \
     --enable-debug \
