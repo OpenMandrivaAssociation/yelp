@@ -21,10 +21,12 @@ Group:		Graphical desktop/GNOME
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Requires:	libgnome2 >= %{req_libgnome_version}
 Requires:	gnome-doc-utils >= %{req_gnome_doc_utils_version}
+%if %mdvver >= 201000
 Requires:	%xulrunner_libname
+%endif
 Requires:	man
 BuildRequires:	gettext
-BuildRequires:	xulrunner-devel >= 1.0
+BuildRequires:	xulrunner-devel >= 1.9
 BuildRequires:	libgnome2-devel >= %{req_libgnome_version}
 BuildRequires:	libgnomeui2-devel
 BuildRequires:	startup-notification-devel
