@@ -4,7 +4,9 @@
 %define req_libgtkhtml_version 2.1.2
 %define req_gnome_doc_utils_version 0.17.2
 
-%{?!xulrunner_libname:%define xulrunner_libname libxulrunner}
+%if %{?xulrunner_libname:0}%{?!xulrunner_libname:1}
+%define xulrunner_libname libxulrunner
+%endif
 
 Summary:	GNOME 2 help browser
 Name:		yelp
@@ -23,7 +25,7 @@ Group:		Graphical desktop/GNOME
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Requires:	libgnome2 >= %{req_libgnome_version}
 Requires:	gnome-doc-utils >= %{req_gnome_doc_utils_version}
-Requires:	%xulrunner_libname
+Requires:	%{xulrunner_libname}
 Requires:	man
 BuildRequires:	gettext
 BuildRequires:	xulrunner-devel >= 1.9
