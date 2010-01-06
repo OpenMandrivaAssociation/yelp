@@ -2,7 +2,7 @@
 
 %define req_libgnome_version 2.0.2
 %define req_libgtkhtml_version 2.1.2
-%define req_gnome_doc_utils_version 0.17.2
+%define req_gnome_doc_utils_version 0.19.1
 
 %if %{?xulrunner_libname:0}%{?!xulrunner_libname:1}
 %define xulrunner_libname libxulrunner
@@ -10,8 +10,8 @@
 
 Summary:	GNOME 2 help browser
 Name:		yelp
-Version:	2.28.1
-Release:	%mkrel 2
+Version:	2.29.1
+Release:	%mkrel 1
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 # from Fedora: register docbook mime type for yelp
