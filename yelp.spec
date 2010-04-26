@@ -11,7 +11,7 @@
 Summary:	GNOME 2 help browser
 Name:		yelp
 Version:	2.30.0
-Release:	%mkrel 2
+Release:	%mkrel 3
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 # from Fedora: register docbook mime type for yelp
@@ -31,7 +31,6 @@ BuildRequires:	xulrunner-devel >= 1.9
 BuildRequires:	libgnome2-devel >= %{req_libgnome_version}
 BuildRequires:	libgnomeui2-devel
 BuildRequires:	startup-notification-devel
-BuildRequires:	libbeagle-devel >= 0.3.0
 BuildRequires:	libbzip2-devel
 BuildRequires:	rarian-devel
 BuildRequires:	liblzmadec-devel
@@ -53,7 +52,7 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 %build
 export CPPFLAGS=-I/usr/include/nspr4
 %configure2_5x \
-    --with-search=beagle \
+    --with-search=basic \
     --enable-debug \
     --with-gecko=libxul-embedding \
 
