@@ -26,6 +26,8 @@ Requires:	man
 BuildRequires:	gettext
 BuildRequires:	xulrunner-devel >= 1.9
 BuildRequires:	gtk+2-devel
+BuildRequires:  dbus-glib-devel
+BuildRequires:  libGConf2-devel
 BuildRequires:	startup-notification-devel
 BuildRequires:	libbzip2-devel
 BuildRequires:	rarian-devel
