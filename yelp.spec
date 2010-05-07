@@ -1,7 +1,5 @@
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-%define req_libgnome_version 2.0.2
-%define req_libgtkhtml_version 2.1.2
 %define req_gnome_doc_utils_version 0.19.1
 
 %if %{?xulrunner_libname:0}%{?!xulrunner_libname:1}
@@ -11,7 +9,7 @@
 Summary:	GNOME 2 help browser
 Name:		yelp
 Version:	2.30.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 # from Fedora: register docbook mime type for yelp
@@ -22,14 +20,12 @@ URL:		http://live.gnome.org/Yelp
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
-Requires:	libgnome2 >= %{req_libgnome_version}
 Requires:	gnome-doc-utils >= %{req_gnome_doc_utils_version}
 Requires:	%{xulrunner_libname}
 Requires:	man
 BuildRequires:	gettext
 BuildRequires:	xulrunner-devel >= 1.9
-BuildRequires:	libgnome2-devel >= %{req_libgnome_version}
-BuildRequires:	libgnomeui2-devel
+BuildRequires:	gtk+2-devel
 BuildRequires:	startup-notification-devel
 BuildRequires:	libbzip2-devel
 BuildRequires:	rarian-devel
