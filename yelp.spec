@@ -9,7 +9,7 @@
 Summary:	GNOME 2 help browser
 Name:		yelp
 Version:	2.30.1
-Release:	%mkrel 2
+Release:	%mkrel 3
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 # from Fedora: register docbook mime type for yelp
@@ -46,6 +46,9 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 %setup -q
 %patch2 -p1 -b .add-mime-handling
 %patch4 -p1 -b .title
+
+#ensure schema is recreated correctly
+rm -f data/yelp.schemas
 
 %build
 export CPPFLAGS=-I/usr/include/nspr4
