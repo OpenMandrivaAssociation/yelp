@@ -9,7 +9,7 @@
 Summary:	GNOME 2 help browser
 Name:		yelp
 Version:	2.30.1
-Release:	%mkrel 3
+Release:	%mkrel 4
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 # from Fedora: register docbook mime type for yelp
