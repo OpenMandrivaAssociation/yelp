@@ -1,15 +1,14 @@
-%define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
-
 %define req_gnome_doc_utils_version 0.19.1
-
-%if %{?xulrunner_libname:0}%{?!xulrunner_libname:1}
-%define xulrunner_libname libxulrunner
-%endif
 
 Summary:	GNOME 2 help browser
 Name:		yelp
-Version:	2.30.1
-Release:	%mkrel 5
+Version:	2.30.2
+Release:	%mkrel 1
+# fwang: source0 was a merge of upstream webkit and gnome-2-30 branch
+# git clone git://git.gnome.org/yelp
+# cd yelp
+# git checkout webkit
+# git merge origin/gnome-2-30
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	yelp.png
 # from Fedora: register docbook mime type for yelp
@@ -21,10 +20,9 @@ License:	GPLv2+
 Group:		Graphical desktop/GNOME
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Requires:	gnome-doc-utils >= %{req_gnome_doc_utils_version}
-Requires:	%{xulrunner_libname}
 Requires:	man
 BuildRequires:	gettext
-BuildRequires:	xulrunner-devel >= 1.9
+BuildRequires:	webkitgtk-devel
 BuildRequires:	gtk+2-devel
 BuildRequires:  dbus-glib-devel
 BuildRequires:  libGConf2-devel
@@ -45,17 +43,16 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 %prep
 %setup -q
 %patch2 -p1 -b .add-mime-handling
-%patch4 -p1 -b .title
+#%patch4 -p1 -b .title
 
 #ensure schema is recreated correctly
 rm -f data/yelp.schemas
 
 %build
-export CPPFLAGS=-I/usr/include/nspr4
+NOCONFIGURE=yes gnome-autogen.sh
 %configure2_5x \
     --with-search=basic \
-    --enable-debug \
-    --with-gecko=libxul-embedding \
+    --enable-debug
 
 %make
 
