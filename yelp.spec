@@ -3,7 +3,7 @@
 Summary:	GNOME 2 help browser
 Name:		yelp
 Version:	2.30.2
-Release:	%mkrel 4
+Release:	%mkrel 5
 # fwang: source0 was a merge of upstream webkit and gnome-2-30 branch
 # git clone git://git.gnome.org/yelp
 # cd yelp
