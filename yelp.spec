@@ -3,7 +3,7 @@
 Summary:	GNOME 2 help browser
 Name:		yelp
 Version:	2.30.2
-Release:	%mkrel 5
+Release:	%mkrel 6
 # fwang: source0 was a merge of upstream webkit and gnome-2-30 branch
 # git clone git://git.gnome.org/yelp
 # cd yelp
@@ -16,6 +16,8 @@ Patch2:		yelp-2.13.2-add-mime-handling.patch
 # (fc) 2.4.2-4mdk strip newline from title 
 Patch4:		yelp-2.6.0-title.patch
 Patch5:		yelp-2.30.2-xz-support.patch
+Patch6:		yelp-missing-slash.patch
+Patch7:		yelp-add-mime-type-to-desktop.patch
 URL:		http://live.gnome.org/Yelp
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -46,6 +48,12 @@ Help browser for GNOME 2 which supports docbook documents, info and man.
 %patch2 -p1 -b .add-mime-handling~
 #%patch4 -p1 -b .title~
 %patch5 -p1 -b .xz~
+
+# yelp-missing-slash.patch
+%patch6 -p1 -b .misslash
+
+# yelp-add-mime-type-to-desktop.patch
+%patch7 -p1 -b .add-mime-type-to-desktop
 
 #ensure schema is recreated correctly
 rm -f data/yelp.schemas
