@@ -1,99 +1,102 @@
-%define req_gnome_doc_utils_version 0.19.1
+%define major	0
+%define libname	%mklibname %{name} %{major}
+%define develname	%mklibname %{name} -d
 
-Summary:	GNOME 2 help browser
+Summary:	GNOME 3 help browser
 Name:		yelp
-Version:	2.30.2
-Release:	%mkrel 6
-# fwang: source0 was a merge of upstream webkit and gnome-2-30 branch
-# git clone git://git.gnome.org/yelp
-# cd yelp
-# git checkout webkit
-# git merge origin/gnome-2-30
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-Source1:	yelp.png
-# from Fedora: register docbook mime type for yelp
-Patch2:		yelp-2.13.2-add-mime-handling.patch
-# (fc) 2.4.2-4mdk strip newline from title 
-Patch4:		yelp-2.6.0-title.patch
-Patch5:		yelp-2.30.2-xz-support.patch
-Patch6:		yelp-missing-slash.patch
-Patch7:		yelp-add-mime-type-to-desktop.patch
-URL:		http://live.gnome.org/Yelp
+Version:	3.2.1
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
-Requires:	gnome-doc-utils >= %{req_gnome_doc_utils_version}
-Requires:	man
+URL:		http://live.gnome.org/Yelp
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+Source1:	yelp.png
+
 BuildRequires:	gettext
-BuildRequires:	webkitgtk-devel
-BuildRequires:	gtk+2-devel
-BuildRequires:  dbus-glib-devel
-BuildRequires:  libGConf2-devel
-BuildRequires:	startup-notification-devel
-BuildRequires:	libbzip2-devel
-BuildRequires:	rarian-devel
-BuildRequires:	liblzma-devel
+BuildRequires:	gnome-doc-utils
+BuildRequires:	gnome-common
 BuildRequires:	intltool
-BuildRequires:	gnome-doc-utils >= %{req_gnome_doc_utils_version}
-BuildRequires:	libxslt-devel texinfo
-BuildRequires:	desktop-file-utils
-BuildRequires:  gnome-common
-BuildRequires:  gettext-devel
+BuildRequires:	sed
+BuildRequires:	gettext-devel
+BuildRequires:	gtk-doc
+BuildRequires:	pkgconfig(folks)
+BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	pkgconfig(libexslt)
+BuildRequires:	pkgconfig(liblzma)
+BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(libxslt)
+BuildRequires:	pkgconfig(sqlite3)
+BuildRequires:	pkgconfig(webkitgtk-3.0)
+BuildRequires:	pkgconfig(yelp-xsl)
+
+Requires:	gnome-doc-utils
+Requires:	man
+Requires:	yelp-xsl
 
 %description
-Help browser for GNOME 2 which supports docbook documents, info and man.
+Help browser for GNOME 3 which supports docbook documents, info and man.
+
+%package -n %{libname}
+Summary:	Libraries for %name
+Group:		System/Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description -n %{libname}
+This package contains libraries used by the yelp help browser.
+
+%package -n %{develname}
+Summary:	Development files for %{name}
+Group:		Development/GNOME and GTK+
+Requires:	%{libname} = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
+
+%description -n %{develname}
+This package contains header files and documentation for
+the libraries in the yelp-libs package.
 
 %prep
 %setup -q
-%patch2 -p1 -b .add-mime-handling~
-#%patch4 -p1 -b .title~
-%patch5 -p1 -b .xz~
-
-# yelp-missing-slash.patch
-%patch6 -p1 -b .misslash
-
-# yelp-add-mime-type-to-desktop.patch
-%patch7 -p1 -b .add-mime-type-to-desktop
-
-#ensure schema is recreated correctly
-rm -f data/yelp.schemas
+%apply_patches
 
 %build
-NOCONFIGURE=yes gnome-autogen.sh
 %configure2_5x \
+	--disable-static \
+	--disable-rpath \
+	--disable-schemas-compile \
     --with-search=basic \
     --enable-debug
 
-%make
+%make LIBS='-lgthread-2.0'
 
 %install
 rm -rf %{buildroot}
-
 %makeinstall_std
 
 desktop-file-install \
-  --remove-category="Application" \
-  --add-only-show-in="GNOME" \
-  --add-category="Documentation" \
-  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
+	--remove-category="Application" \
+	--add-only-show-in="GNOME" \
+	--add-category="Documentation" \
+	--dir %{buildroot}%{_datadir}/applications \
+	%{buildroot}%{_datadir}/applications/*
 
 mkdir -p %{buildroot}%{_datadir}/pixmaps
 cp %{SOURCE1} %{buildroot}%{_datadir}/pixmaps/gnome-help.png
 
 %find_lang %{name}
 
-%clean
-rm -rf %{buildroot}
-
-%preun
-%preun_uninstall_gconf_schemas %name
-
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc README TODO AUTHORS NEWS
-%{_sysconfdir}/gconf/schemas/%name.schemas
 %{_bindir}/*
 %{_datadir}/applications/*
+%{_datadir}/glib-2.0/schemas/org.gnome.yelp.gschema.xml
 %{_datadir}/yelp
 %{_datadir}/pixmaps/*
-%{_iconsdir}/hicolor/*/apps/*.png
+
+%files -n %libname
+%{_libdir}/lib%{name}.so.%{major}*
+
+%files -n %{develname}
+%{_libdir}/lib%{name}.so
+%{_includedir}/lib%{name}
+%doc %{_datadir}/gtk-doc/html/lib%{name}
+
