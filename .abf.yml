@@ -1,3 +1,5 @@
+---
 sources:
-  "yelp-3.4.2.tar.xz:"	94cb2d26fe7f3b13618795ddaa7b9a2acc2c3344
-  "yelp.png:"	ecd8907e3e603c55398c420015f5a882de5c1471
+  yelp-3.6.1.tar.xz: 5f9627552df3674710753b90f979700188859528
+  yelp.png: ecd8907e3e603c55398c420015f5a882de5c1471
+  yelp-3.6.2.tar.xz: bf7d9adcd38b50b3d43e2b891fdcdd33b781d8ab

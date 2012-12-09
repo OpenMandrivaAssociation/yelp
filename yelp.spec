@@ -1,17 +1,17 @@
-%define lib_major	0
-%define libname         %mklibname %name %{lib_major}
-%define develname      %mklibname -d %name 
+%define lib_major 0
+%define libname         %mklibname %{name} %{lib_major}
+%define develname      %mklibname -d %{name}
 
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 
 Summary:	GNOME 3 help browser
 Name:		yelp
-Version:	3.4.2
+Version:	3.6.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://live.gnome.org/Yelp
-Source0:	http://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Source0:	ftp://ftp.gnome.org/pub/gnome/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 Source1:	yelp.png
 
 BuildRequires:	desktop-file-utils >= 0.19
@@ -44,7 +44,7 @@ Requires:	man
 Help browser for GNOME 3 which supports docbook documents, info and man.
 
 %package -n %{libname}
-Summary:	Libraries for %name
+Summary:	Libraries for %{name}
 Group:		System/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -76,9 +76,6 @@ the libraries in the yelp-libs package.
 %install
 %makeinstall_std
 
-# we don't want these
-rm -rf %{buildroot}%{_libdir}/libyelp.la
-
 desktop-file-install \
 	--remove-category="Application" \
 	--add-only-show-in="GNOME" \
@@ -102,11 +99,10 @@ mkdir -p -m 755 %{buildroot}%{_datadir}/gnome/help
 %{_datadir}/pixmaps/gnome-help.png
 %{_datadir}/yelp-xsl/xslt/common/domains/yelp.xml
 
-%files -n %libname
+%files -n %{libname}
 %{_libdir}/lib%{name}.so.%{lib_major}*
 
 %files -n %{develname}
 %{_libdir}/lib%{name}.so
 %{_includedir}/lib%{name}
 %doc %{_datadir}/gtk-doc/html/lib%{name}
-
