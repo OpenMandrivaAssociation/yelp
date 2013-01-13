@@ -21,7 +21,7 @@ BuildRequires:	intltool
 BuildRequires:	itstool
 BuildRequires:	sed
 BuildRequires:	gettext-devel
-BuildRequires:	libbzip2-devel
+BuildRequires:	bzip2-devel
 BuildRequires:	pkgconfig(gio-2.0) >= 2.25.11
 BuildRequires:	pkgconfig(gio-unix-2.0)
 BuildRequires:	pkgconfig(gnome-doc-utils) >= 0.19.1
