@@ -1,8 +1,8 @@
-%define lib_major 0
-%define libname         %mklibname %{name} %{lib_major}
-%define develname      %mklibname -d %{name}
-
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
+
+%define major 0
+%define libname         %mklibname %{name} %{major}
+%define devname      %mklibname -d %{name}
 
 Summary:	GNOME 3 help browser
 Name:		yelp
@@ -10,8 +10,8 @@ Version:	3.6.2
 Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
-URL:		http://live.gnome.org/Yelp
-Source0:	ftp://ftp.gnome.org/pub/gnome/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		http://live.gnome.org/Yelp
+Source0:	ftp://ftp.gnome.org/pub/gnome/sources/yelp/%{url_ver}/%{name}-%{version}.tar.xz
 Source1:	yelp.png
 
 BuildRequires:	desktop-file-utils >= 0.19
@@ -22,6 +22,7 @@ BuildRequires:	itstool
 BuildRequires:	sed
 BuildRequires:	gettext-devel
 BuildRequires:	bzip2-devel
+BuildRequires:	pkgconfig(folks)
 BuildRequires:	pkgconfig(gio-2.0) >= 2.25.11
 BuildRequires:	pkgconfig(gio-unix-2.0)
 BuildRequires:	pkgconfig(gnome-doc-utils) >= 0.19.1
@@ -34,8 +35,6 @@ BuildRequires:	pkgconfig(libxslt) >= 1.1.4
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(webkitgtk-3.0) >= 1.3.2
 BuildRequires:	pkgconfig(yelp-xsl) >= 3.1.2
-BuildRequires:	pkgconfig(folks)
-
 Requires:	gnome-doc-utils >= 0.19.1
 Requires:	yelp-xsl >= 3.1.2
 Requires:	man
@@ -46,18 +45,18 @@ Help browser for GNOME 3 which supports docbook documents, info and man.
 %package -n %{libname}
 Summary:	Libraries for %{name}
 Group:		System/Libraries
-Requires:	%{name} = %{version}-%{release}
+Suggests:	%{name} = %{version}-%{release}
 
 %description -n %{libname}
 This package contains libraries used by the yelp help browser.
 
-%package -n %{develname}
+%package -n %{devname}
 Summary:	Development files for %{name}
 Group:		Development/GNOME and GTK+
 Requires:	%{libname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n %{develname}
+%description -n %{devname}
 This package contains header files and documentation for
 the libraries in the yelp-libs package.
 
@@ -100,9 +99,9 @@ mkdir -p -m 755 %{buildroot}%{_datadir}/gnome/help
 %{_datadir}/yelp-xsl/xslt/common/domains/yelp.xml
 
 %files -n %{libname}
-%{_libdir}/lib%{name}.so.%{lib_major}*
+%{_libdir}/lib%{name}.so.%{major}*
 
-%files -n %{develname}
+%files -n %{devname}
 %{_libdir}/lib%{name}.so
 %{_includedir}/lib%{name}
 %doc %{_datadir}/gtk-doc/html/lib%{name}
