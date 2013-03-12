@@ -1,8 +1,8 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 
-%define major 0
-%define libname         %mklibname %{name} %{major}
-%define devname      %mklibname -d %{name}
+%define major	0
+%define libname	%mklibname %{name} %{major}
+%define devname	%mklibname -d %{name}
 
 Summary:	GNOME 3 help browser
 Name:		yelp
@@ -11,7 +11,7 @@ Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://live.gnome.org/Yelp
-Source0:	ftp://ftp.gnome.org/pub/gnome/sources/yelp/%{url_ver}/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/gnome/sources/yelp/%{url_ver}/%{name}-%{version}.tar.xz
 Source1:	yelp.png
 
 BuildRequires:	desktop-file-utils >= 0.19
