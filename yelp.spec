@@ -6,8 +6,8 @@
 
 Summary:	GNOME 3 help browser
 Name:		yelp
-Version:	3.6.2
-Release:	8
+Version:	3.14.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://live.gnome.org/Yelp
@@ -34,9 +34,9 @@ BuildRequires:	pkgconfig(libxml-2.0) >= 2.6.5
 BuildRequires:	pkgconfig(libxslt) >= 1.1.4
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(webkitgtk-3.0) >= 1.3.2
-BuildRequires:	pkgconfig(yelp-xsl) >= 3.1.2
+BuildRequires:	pkgconfig(yelp-xsl)
 Requires:	gnome-doc-utils >= 0.19.1
-Requires:	yelp-xsl >= 3.1.2
+Requires:	yelp-xsl
 Requires:	man
 
 %description
@@ -64,7 +64,7 @@ the libraries in the yelp-libs package.
 %setup -q
 
 %build
-%configure2_5x \
+%configure \
 	--enable-debug \
 	--disable-schemas-compile \
 	--disable-rpath \
