@@ -1,3 +1,5 @@
-sources:
-  yelp.png: ecd8907e3e603c55398c420015f5a882de5c1471
+removed_sources:
   yelp-3.14.0.tar.xz: ec175b430abf5978eaf40004b0825300c3dfae2f
+sources:
+  yelp-3.14.1.tar.xz: 865cc844ab2e4c5c23a62420519728312c601aff
+  yelp.png: ecd8907e3e603c55398c420015f5a882de5c1471

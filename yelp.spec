@@ -6,7 +6,7 @@
 
 Summary:	GNOME 3 help browser
 Name:		yelp
-Version:	3.14.0
+Version:	3.14.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -67,8 +67,7 @@ the libraries in the yelp-libs package.
 %configure \
 	--enable-debug \
 	--disable-schemas-compile \
-	--disable-rpath \
-	--disable-static
+	--disable-rpath
 
 %make
 
