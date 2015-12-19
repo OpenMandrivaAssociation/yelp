@@ -5,6 +5,8 @@
 %define libname	%mklibname %{name} %{major}
 %define devname	%mklibname -d %{name}
 
+%define __noautoreq 'devel\\(libyelpcommon(.*)'
+
 Summary:	GNOME 3 help browser
 Name:		yelp
 Version:	3.18.1
