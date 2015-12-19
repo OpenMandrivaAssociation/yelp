@@ -1,4 +1,5 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
+%define _disable_rebuild_configure 1
 
 %define major	0
 %define libname	%mklibname %{name} %{major}
@@ -6,8 +7,8 @@
 
 Summary:	GNOME 3 help browser
 Name:		yelp
-Version:	3.16.0
-Release:	2
+Version:	3.18.1
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://live.gnome.org/Yelp
@@ -32,7 +33,7 @@ BuildRequires:	pkgconfig(liblzma) >= 4.9
 BuildRequires:	pkgconfig(libxml-2.0) >= 2.6.5
 BuildRequires:	pkgconfig(libxslt) >= 1.1.4
 BuildRequires:	pkgconfig(sqlite3)
-BuildRequires:	pkgconfig(webkitgtk-3.0) >= 1.3.2
+BuildRequires:	pkgconfig(webkit2gtk-4.0) >= 1.3.2
 BuildRequires:	pkgconfig(yelp-xsl)
 Requires:	gnome-doc-utils >= 0.19.1
 Requires:	yelp-xsl
@@ -95,6 +96,7 @@ mkdir -p -m 755 %{buildroot}%{_datadir}/gnome/help
 %{_datadir}/glib-2.0/schemas/org.gnome.yelp.gschema.xml
 %{_datadir}/pixmaps/gnome-help.png
 %{_datadir}/yelp-xsl/xslt/common/domains/yelp.xml
+%{_libdir}/yelp
 
 %files -n %{libname}
 %{_libdir}/lib%{name}.so.%{major}*

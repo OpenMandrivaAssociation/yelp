@@ -1,6 +1,7 @@
 removed_sources:
   yelp-3.14.0.tar.xz: ec175b430abf5978eaf40004b0825300c3dfae2f
   yelp-3.14.1.tar.xz: 865cc844ab2e4c5c23a62420519728312c601aff
-sources:
   yelp-3.16.0.tar.xz: 09ac7c5e9dc2bb56b30571536a36fcf146113fd7
+sources:
+  yelp-3.18.1.tar.xz: 94fe10547b2a84051c88daf79ab14f803ab47815
   yelp.png: ecd8907e3e603c55398c420015f5a882de5c1471
