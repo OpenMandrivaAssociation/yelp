@@ -39,7 +39,7 @@ BuildRequires:	pkgconfig(webkit2gtk-4.0) >= 1.3.2
 BuildRequires:	pkgconfig(yelp-xsl)
 Requires:	gnome-doc-utils >= 0.19.1
 Requires:	yelp-xsl
-Requires:	man
+Requires:	man-db
 
 %description
 Help browser for GNOME 3 which supports docbook documents, info and man.
