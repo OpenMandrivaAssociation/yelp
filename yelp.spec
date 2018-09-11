@@ -37,6 +37,7 @@ BuildRequires:	pkgconfig(libxslt) >= 1.1.4
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(webkit2gtk-4.0) >= 1.3.2
 BuildRequires:	pkgconfig(yelp-xsl)
+BuildRequires:	pkgconfig(gpg-error)
 Requires:	gnome-doc-utils >= 0.19.1
 Requires:	yelp-xsl
 Requires:	man
