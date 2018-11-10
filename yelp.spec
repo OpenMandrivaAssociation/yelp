@@ -10,7 +10,7 @@
 Summary:	GNOME 3 help browser
 Name:		yelp
 Version:	3.30.0
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://live.gnome.org/Yelp
