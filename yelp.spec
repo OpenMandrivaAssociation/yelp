@@ -17,7 +17,7 @@ Url:		http://live.gnome.org/Yelp
 Source0:	http://ftp.gnome.org/pub/gnome/sources/yelp/%{url_ver}/%{name}-%{version}.tar.xz
 Source1:	yelp.png
 
-BuildRequires:	appstream-uti
+BuildRequires:	appstream-util
 BuildRequires:	desktop-file-utils >= 0.19
 BuildRequires:	gnome-common
 BuildRequires:	gtk-doc
