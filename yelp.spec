@@ -9,14 +9,15 @@
 
 Summary:	GNOME 3 help browser
 Name:		yelp
-Version:	3.30.0
-Release:	4
+Version:	3.32.1
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://live.gnome.org/Yelp
 Source0:	http://ftp.gnome.org/pub/gnome/sources/yelp/%{url_ver}/%{name}-%{version}.tar.xz
 Source1:	yelp.png
 
+BuildRequires:	appstream-uti
 BuildRequires:	desktop-file-utils >= 0.19
 BuildRequires:	gnome-common
 BuildRequires:	gtk-doc
@@ -36,12 +37,14 @@ BuildRequires:	pkgconfig(libxml-2.0) >= 2.6.5
 BuildRequires:	pkgconfig(libxslt) >= 1.1.4
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(webkit2gtk-4.0) >= 1.3.2
+BuildRequires:	pkgconfig(webkit2gtk-web-extension-4.0)
 BuildRequires:	pkgconfig(yelp-xsl)
 BuildRequires:	pkgconfig(gpg-error)
 BuildRequires:	pkgconfig(libgcrypt)
 Requires:	gnome-doc-utils >= 0.19.1
 Requires:	yelp-xsl
 Requires:	man
+Requires:	docbook-dtds
 
 %description
 Help browser for GNOME 3 which supports docbook documents, info and man.
@@ -69,21 +72,14 @@ the libraries in the yelp-libs package.
 
 %build
 %configure \
-	--enable-debug \
 	--disable-schemas-compile \
+	--disable-static \
 	--disable-rpath
 
-%make
+%make_build
 
 %install
-%makeinstall_std
-
-desktop-file-install \
-	--remove-category="Application" \
-	--add-only-show-in="GNOME" \
-	--add-category="Documentation" \
-	--dir %{buildroot}%{_datadir}/applications \
-	%{buildroot}%{_datadir}/applications/*
+%make_install
 
 install -Dpm644 %{SOURCE1} %{buildroot}%{_datadir}/pixmaps/gnome-help.png
 
@@ -97,6 +93,7 @@ mkdir -p -m 755 %{buildroot}%{_datadir}/gnome/help
 %{_datadir}/applications/*
 %dir %{_datadir}/gnome/help
 %{_datadir}/%{name}
+%{_iconsdir}/hicolor/*/apps/org.gnome.Yelp*.svg
 %{_datadir}/glib-2.0/schemas/org.gnome.yelp.gschema.xml
 %{_datadir}/pixmaps/gnome-help.png
 %{_datadir}/yelp-xsl/xslt/common/domains/yelp.xml
