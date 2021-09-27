@@ -74,6 +74,7 @@ the libraries in the yelp-libs package.
 %configure \
 	--disable-schemas-compile \
 	--disable-static \
+	--with-webkit2gtk-4-0 \
 	--disable-rpath
 
 %make_build
