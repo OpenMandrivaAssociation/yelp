@@ -9,7 +9,7 @@
 
 Summary:	GNOME 3 help browser
 Name:		yelp
-Version:	41.2
+Version:	42.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
