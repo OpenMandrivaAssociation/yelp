@@ -108,4 +108,3 @@ mkdir -p -m 755 %{buildroot}%{_datadir}/gnome/help
 %files -n %{devname}
 %{_libdir}/lib%{name}.so
 %{_includedir}/lib%{name}
-%doc %{_datadir}/gtk-doc/html/lib%{name}
