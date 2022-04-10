@@ -32,6 +32,7 @@ BuildRequires:	pkgconfig(gnome-doc-utils) >= 0.19.1
 BuildRequires:	pkgconfig(gtk+-3.0) >= 2.91.8
 BuildRequires:	pkgconfig(gtk+-unix-print-3.0)
 BuildRequires:	pkgconfig(libexslt) >= 0.8.1
+BuildRequires:	pkgconfig(libhandy-1)
 BuildRequires:	pkgconfig(liblzma) >= 4.9
 BuildRequires:	pkgconfig(libxml-2.0) >= 2.6.5
 BuildRequires:	pkgconfig(libxslt) >= 1.1.4
