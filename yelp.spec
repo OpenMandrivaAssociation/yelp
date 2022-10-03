@@ -9,7 +9,7 @@
 
 Summary:	GNOME 3 help browser
 Name:		yelp
-Version:	42.1
+Version:	42.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -90,7 +90,7 @@ mkdir -p -m 755 %{buildroot}%{_datadir}/gnome/help
 %find_lang %{name}
 
 %files -f %{name}.lang
-%doc README TODO AUTHORS NEWS
+%doc README* TODO AUTHORS NEWS
 %{_bindir}/*
 %{_datadir}/applications/*
 %dir %{_datadir}/gnome/help
