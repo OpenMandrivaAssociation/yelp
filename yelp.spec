@@ -10,11 +10,11 @@
 Summary:	GNOME 3 help browser
 Name:		yelp
 Version:	42.2
-Release:	4
+Release:	5
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
-Url:		http://live.gnome.org/Yelp
-Source0:	http://ftp.gnome.org/pub/gnome/sources/yelp/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		https://live.gnome.org/Yelp
+Source0:	https://ftp.gnome.org/pub/gnome/sources/yelp/%{url_ver}/%{name}-%{version}.tar.xz
 Source1:	yelp.png
 
 BuildRequires:	appstream-util
