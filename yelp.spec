@@ -19,7 +19,7 @@ Source1:	yelp.png
 
 BuildRequires:	appstream-util
 BuildRequires:	desktop-file-utils >= 0.19
-BuildRequires:	gnome-common
+#BuildRequires:	gnome-common
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:	itstool
