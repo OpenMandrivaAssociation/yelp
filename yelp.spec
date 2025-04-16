@@ -10,7 +10,7 @@
 Summary:	GNOME 3 help browser
 Name:		yelp
 Version:	42.2
-Release:	8
+Release:	9
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://live.gnome.org/Yelp
@@ -47,6 +47,11 @@ Requires:	yelp-xsl
 Requires:	man
 Requires:	docbook-dtds
 
+%patchlist
+# https://www.phoronix.com/news/GNOME-Yelp-Security-Issue-2025 CVE-2025-3155
+# https://gitlab.gnome.org/GNOME/yelp/-/issues/221
+https://gitlab.gnome.org/-/project/1541/uploads/ae1771a826ff3153b842b347220adb47/yelp.patch
+
 %description
 Help browser for GNOME 3 which supports docbook documents, info and man.
 
@@ -69,7 +74,7 @@ This package contains header files and documentation for
 the libraries in the yelp-libs package.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 %configure \
