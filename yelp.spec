@@ -9,14 +9,15 @@
 
 Summary:	GNOME 3 help browser
 Name:		yelp
-Version:	42.2
-Release:	9
+Version:	42.3
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://live.gnome.org/Yelp
 Source0:	https://ftp.gnome.org/pub/gnome/sources/yelp/%{url_ver}/%{name}-%{version}.tar.xz
 Source1:	yelp.png
 
+BuildRequires:	meson
 BuildRequires:	appstream-util
 BuildRequires:	desktop-file-utils >= 0.19
 #BuildRequires:	gnome-common
@@ -48,9 +49,6 @@ Requires:	man
 Requires:	docbook-dtds
 
 %patchlist
-# https://www.phoronix.com/news/GNOME-Yelp-Security-Issue-2025 CVE-2025-3155
-# https://gitlab.gnome.org/GNOME/yelp/-/issues/221
-https://gitlab.gnome.org/-/project/1541/uploads/ae1771a826ff3153b842b347220adb47/yelp.patch
 
 %description
 Help browser for GNOME 3 which supports docbook documents, info and man.
@@ -77,15 +75,11 @@ the libraries in the yelp-libs package.
 %autosetup -p1
 
 %build
-%configure \
-	--disable-schemas-compile \
-	--disable-static \
-	--disable-rpath
-
-%make_build
+%meson
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 install -Dpm644 %{SOURCE1} %{buildroot}%{_datadir}/pixmaps/gnome-help.png
 
