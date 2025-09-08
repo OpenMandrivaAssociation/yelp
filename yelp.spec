@@ -96,12 +96,13 @@ mkdir -p -m 755 %{buildroot}%{_datadir}/gnome/help
 %{_datadir}/glib-2.0/schemas/org.gnome.yelp.gschema.xml
 %{_datadir}/pixmaps/gnome-help.png
 %{_datadir}/yelp-xsl/xslt/common/domains/yelp.xml
-#{_datadir}/metainfo/yelp.appdata.xml
-#{_libdir}/yelp
+%{_metainfodir}/org.gnome.Yelp.metainfo.xml
+%{_libdir}/yelp-1/web-process-extensions/libyelpwebprocessextension.so
 
 %files -n %{libname}
 %{_libdir}/lib%{name}-1.so.%{major}*
 
 %files -n %{devname}
 %{_libdir}/lib%{name}-1.so
-%{_includedir}/lib%{name}
+%{_includedir}/lib%{name}-1
+%{_libdir}/pkgconfig/libyelp-1.pc
