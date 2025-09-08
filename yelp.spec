@@ -9,7 +9,7 @@
 
 Summary:	GNOME 3 help browser
 Name:		yelp
-Version:	42.3
+Version:	49.rc
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -30,16 +30,15 @@ BuildRequires:	bzip2-devel
 BuildRequires:	pkgconfig(gio-2.0) >= 2.25.11
 BuildRequires:	pkgconfig(gio-unix-2.0)
 BuildRequires:	pkgconfig(gnome-doc-utils) >= 0.19.1
-BuildRequires:	pkgconfig(gtk+-3.0) >= 2.91.8
-BuildRequires:	pkgconfig(gtk+-unix-print-3.0)
+BuildRequires:	pkgconfig(gtk4)
 BuildRequires:	pkgconfig(libexslt) >= 0.8.1
+BuildRequires:  pkgconfig(libadwaita-1)
 BuildRequires:	pkgconfig(libhandy-1)
 BuildRequires:	pkgconfig(liblzma) >= 4.9
 BuildRequires:	pkgconfig(libxml-2.0) >= 2.6.5
 BuildRequires:	pkgconfig(libxslt) >= 1.1.4
 BuildRequires:	pkgconfig(sqlite3)
-BuildRequires:	pkgconfig(webkit2gtk-4.1) >= 1.3.2
-BuildRequires:	pkgconfig(webkit2gtk-web-extension-4.1)
+BuildRequires:	pkgconfig(webkitgtk-6.0)
 BuildRequires:	pkgconfig(yelp-xsl)
 BuildRequires:	pkgconfig(gpg-error)
 BuildRequires:	pkgconfig(libgcrypt)
@@ -97,12 +96,13 @@ mkdir -p -m 755 %{buildroot}%{_datadir}/gnome/help
 %{_datadir}/glib-2.0/schemas/org.gnome.yelp.gschema.xml
 %{_datadir}/pixmaps/gnome-help.png
 %{_datadir}/yelp-xsl/xslt/common/domains/yelp.xml
-%{_datadir}/metainfo/yelp.appdata.xml
-%{_libdir}/yelp
+%{_metainfodir}/org.gnome.Yelp.metainfo.xml
+%{_libdir}/yelp-1/web-process-extensions/libyelpwebprocessextension.so
 
 %files -n %{libname}
-%{_libdir}/lib%{name}.so.%{major}*
+%{_libdir}/lib%{name}-1.so.%{major}*
 
 %files -n %{devname}
-%{_libdir}/lib%{name}.so
-%{_includedir}/lib%{name}
+%{_libdir}/lib%{name}-1.so
+%{_includedir}/lib%{name}-1
+%{_libdir}/pkgconfig/libyelp-1.pc
