@@ -96,8 +96,8 @@ mkdir -p -m 755 %{buildroot}%{_datadir}/gnome/help
 %{_datadir}/glib-2.0/schemas/org.gnome.yelp.gschema.xml
 %{_datadir}/pixmaps/gnome-help.png
 %{_datadir}/yelp-xsl/xslt/common/domains/yelp.xml
-%{_datadir}/metainfo/yelp.appdata.xml
-%{_libdir}/yelp
+#{_datadir}/metainfo/yelp.appdata.xml
+#{_libdir}/yelp
 
 %files -n %{libname}
 %{_libdir}/lib%{name}.so.%{major}*
