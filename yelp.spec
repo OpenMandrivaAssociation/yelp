@@ -38,8 +38,7 @@ BuildRequires:	pkgconfig(liblzma) >= 4.9
 BuildRequires:	pkgconfig(libxml-2.0) >= 2.6.5
 BuildRequires:	pkgconfig(libxslt) >= 1.1.4
 BuildRequires:	pkgconfig(sqlite3)
-BuildRequires:	pkgconfig(webkit2gtk-4.1) >= 1.3.2
-BuildRequires:	pkgconfig(webkit2gtk-web-extension-4.1)
+BuildRequires:	pkgconfig(webkitgtk-6.0)
 BuildRequires:	pkgconfig(yelp-xsl)
 BuildRequires:	pkgconfig(gpg-error)
 BuildRequires:	pkgconfig(libgcrypt)
