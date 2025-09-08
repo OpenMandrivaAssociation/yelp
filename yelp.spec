@@ -100,8 +100,8 @@ mkdir -p -m 755 %{buildroot}%{_datadir}/gnome/help
 #{_libdir}/yelp
 
 %files -n %{libname}
-%{_libdir}/lib%{name}.so.%{major}*
+%{_libdir}/lib%{name}-1.so.%{major}*
 
 %files -n %{devname}
-%{_libdir}/lib%{name}.so
+%{_libdir}/lib%{name}-1.so
 %{_includedir}/lib%{name}
