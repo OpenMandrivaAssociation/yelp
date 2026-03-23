@@ -10,7 +10,7 @@
 Summary:	GNOME 3 help browser
 Name:		yelp
 Version:	49.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://live.gnome.org/Yelp
@@ -35,7 +35,7 @@ BuildRequires:	pkgconfig(libexslt) >= 0.8.1
 BuildRequires:  pkgconfig(libadwaita-1)
 BuildRequires:	pkgconfig(libhandy-1)
 BuildRequires:	pkgconfig(liblzma) >= 4.9
-BuildRequires:	pkgconfig(libxml-2.0) >= 2.6.5
+BuildRequires:	pkgconfig(libxml-2.0) >= 2.15.2
 BuildRequires:	pkgconfig(libxslt) >= 1.1.4
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(webkitgtk-6.0)
